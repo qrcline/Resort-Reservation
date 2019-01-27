@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/Shale.png</file>
+    </qresource>
+</RCC>
