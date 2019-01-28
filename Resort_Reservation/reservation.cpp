@@ -35,7 +35,28 @@ void Reservation::setBackground()
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 }
+
+
 void Reservation::on_nextButton_clicked()
 {
+    double finalTotal=0;
+    double costRoomNight=0;
+
+
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void Reservation::on_adultSelection_valueChanged(int arg1)
+{
+    std::cout<<ui->adultSelection->value();
+}
+
+void Reservation::on_childrenSelection_valueChanged(int arg1)
+{
+
+}
+
+void Reservation::on_roomSelection_currentIndexChanged(int index)
+{
+
 }

@@ -18,6 +18,12 @@ public:
 private slots:
     void on_nextButton_clicked();
 
+    void on_adultSelection_valueChanged(int arg1);
+
+    void on_childrenSelection_valueChanged(int arg1);
+
+    void on_roomSelection_currentIndexChanged(int index);
+
 private:
     Ui::Reservation *ui;
     QString reservationName;
