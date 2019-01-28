@@ -1,5 +1,12 @@
 #include "reservation.h"
 #include "ui_reservation.h"
+#include "iostream"
+#include "string"
+#include <QDate>
+#include <QMessageBox>
+
+
+
 
 Reservation::Reservation(QWidget *parent) :
     QMainWindow(parent),
@@ -7,11 +14,12 @@ Reservation::Reservation(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap bkgnd(":/Resources/Shale.png");
-    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-    QPalette palette;
-    palette.setBrush(QPalette::Background, bkgnd);
-    this->setPalette(palette);
+    //Sets the background
+        setBackground();
+
+    ui->nextButton->setEnabled(false);
+
+
 }
 
 Reservation::~Reservation()
@@ -19,7 +27,15 @@ Reservation::~Reservation()
     delete ui;
 }
 
-void Reservation::on_pushButton_clicked()
+void Reservation::setBackground()
+{
+    QPixmap bkgnd(":/Resources/Shale.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
+}
+void Reservation::on_nextButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
 }

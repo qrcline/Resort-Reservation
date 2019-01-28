@@ -16,16 +16,19 @@ public:
     ~Reservation();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_nextButton_clicked();
 
 private:
     Ui::Reservation *ui;
     QString reservationName;
     bool parking=false;
     int nights=0;
+    int roomType=0;
 
 
 
+
+    void setBackground();
 };
 
 #endif // RESERVATION_H
