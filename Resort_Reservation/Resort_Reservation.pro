@@ -40,4 +40,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    Qt-Frameless-Window-DarkStyle-master/Qt-Frameless-Window-DarkStyle-master/darkstyle.qrc \
+    Qt-Frameless-Window-DarkStyle-master/Qt-Frameless-Window-DarkStyle-master/framelesswindow.qrc

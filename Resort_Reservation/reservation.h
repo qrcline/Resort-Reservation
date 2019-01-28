@@ -20,6 +20,12 @@ private slots:
 
 private:
     Ui::Reservation *ui;
+    QString reservationName;
+    bool parking=false;
+    int nights=0;
+
+
+
 };
 
 #endif // RESERVATION_H

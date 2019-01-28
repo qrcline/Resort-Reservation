@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>321</width>
     <height>559</height>
    </rect>
   </property>
@@ -18,33 +18,23 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QStackedWidget" name="stackedWidget">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
-      <width>401</width>
+      <y>10</y>
+      <width>331</width>
       <height>521</height>
      </rect>
     </property>
     <widget class="QWidget" name="page_1">
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>70</y>
-        <width>47</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Page 1</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>210</y>
+        <x>220</x>
+        <y>460</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -53,44 +43,255 @@
        <string>Next</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="reservationName">
+     <widget class="QSpinBox" name="nights">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>70</y>
-        <width>201</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Reservation Name</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spinBox">
-      <property name="geometry">
-       <rect>
-        <x>81</x>
-        <y>110</y>
-        <width>201</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QRadioButton" name="radioButton">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>206</y>
-        <width>61</width>
+        <x>140</x>
+        <y>150</y>
+        <width>41</width>
         <height>31</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>7</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>10</number>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="parkingYes">
+      <property name="geometry">
+       <rect>
+        <x>21</x>
+        <y>211</y>
+        <width>67</width>
+        <height>19</height>
        </rect>
       </property>
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
       </property>
       <property name="text">
-       <string>RadioButton</string>
+       <string>YES</string>
       </property>
+     </widget>
+     <widget class="QDateEdit" name="arrivalDateInput">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>110</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="arrivalDateLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ARRIVAL DATE</string>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="departureDateInput">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>150</y>
+        <width>110</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="departureDateLabel">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>130</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ARRIVAL DATE</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="parkingNo">
+      <property name="geometry">
+       <rect>
+        <x>94</x>
+        <y>211</y>
+        <width>66</width>
+        <height>19</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string>NO</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="parkingLabel">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>190</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PARKING</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="adultSelection">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>260</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>4</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>240</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ADULTS</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>240</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CHILDREN</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="childrenSelection">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>260</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>130</y>
+        <width>61</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>NIGHTS</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>410</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Subtotal: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="subtotalPg1">
+         <property name="text">
+          <string>$0.00</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>18</x>
+        <y>40</y>
+        <width>281</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="reservationName">
+         <property name="text">
+          <string>Reservation Name</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="roomSelection">
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>Standard 2 Queen -$284/Night</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Atrium 2 Queen-$325/Night</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Standard King-$290/Night</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Atrium King-$350/Night</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2"/>
@@ -100,4 +301,21 @@
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>
