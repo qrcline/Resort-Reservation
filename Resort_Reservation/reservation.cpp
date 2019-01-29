@@ -24,9 +24,8 @@ Reservation::Reservation(QWidget *parent) :
     setBackground();
    // ui->nextButton->setEnabled(false);
     setRooms();
-
-
-
+    ui->arrivalDateInput->setDate(QDate::currentDate());
+    ui->arrivalDateInput->setMinimumDateTime(QDateTime::currentDateTime());
 }
 
 
@@ -46,25 +45,60 @@ QString Reservation::ToDollar(double price )
 void Reservation::calculateTotal()
 {
     double roomPrice=0.00;
+    QString roomName;
     switch (ui->roomSelection->currentIndex()) {
 
-    case 0: roomPrice=S_QUEEN;
+    case 0:
+        roomPrice=sQueen.price;
+        roomName=sQueen.name;
         break;
-    case 1:roomPrice=A_QUEEN;
+    case 1:
+        roomPrice=aQueen.price;
+        roomName=aQueen.name;
         break;
-    case 2: roomPrice=S_KING;
+    case 2:
+        roomPrice=sKing.price;
+        roomName=sKing.name;
         break;
-    case 3:roomPrice=A_KING;
+    case 3:
+        roomPrice=aKing.price;
+        roomName=aKing.name;
 
     }
     double parkingFee=0.00;
+    QString parking="NO";
     if(ui->parkingYes->isChecked())
+    {
+        parking="YES";
         parkingFee=PARKING;
+    }
     int nights=ui->nights->value();
 
 
-
+    double roomTotal=roomPrice*nights;
+    double parkingTotal=parkingFee*nights;
+    double resortFTotal=RESORT_FEE*nights;
+    double taxTotal=TAX*roomTotal;
+    double totalDue=roomTotal+parkingTotal+resortFTotal+taxTotal;
      ui->subtotalPg1->setText(ToDollar((roomPrice+parkingFee)*nights));
+     ui->roomTotal->setText(ToDollar(roomTotal));
+     ui->parkingTotal->setText(ToDollar(parkingTotal));
+     ui->resortFeeTotal->setText(ToDollar(resortFTotal));
+     ui->taxTotal->setText(ToDollar(taxTotal));
+     ui->totalDue->setText(ToDollar(totalDue));
+
+     //Confirmation page values
+     ui->totalNightsConfirmation->setText(QString::number(nights));
+     ui->parkingConfirmation->setText(parking);
+     int children=ui->childrenSelection->value();
+     int adults=ui->adultSelection->value();
+     ui->occupantsConfirmation->setText("Children: "+QString::number(children)+ ", Adults: "+QString::number(adults));
+     ui->roomTypeConfirmation->setText(roomName);
+     ui->finalTotalConfirmation->setText(ToDollar(totalDue));
+
+     ui->arrivalDateConfirmation->setText( ui->arrivalDateInput->date().toString());
+     ui->thankYouMessage->setText("Thank you, "+ui->reservationName->text()+",\nWe look forward to seeing you.");
+
 
 }
 
@@ -81,22 +115,22 @@ void Reservation::setBackground()
 
 void Reservation::setRooms()
 {
-    sQueen.name="Standard 2 Queen -$284/Night";
+    sQueen.name="Standard 2 Queen";
     sQueen.price=284;
     sQueen.roomType=1;
     sQueen.maxPeople=4;
 
-    aQueen.name="Atrium 2 Queen -$325/Night";
+    aQueen.name="Atrium 2 Queen";
     aQueen.price=325;
     aQueen.roomType=2;
     aQueen.maxPeople=4;
 
-    sKing.name="Standard King-$290/Night";
+    sKing.name="Standard King-";
     sKing.price=290;
     sKing.roomType=3;
     sKing.maxPeople=3;
 
-    aKing.name="Atrium King-$350/Night";
+    aKing.name="Atrium King";
     aKing.price=350;
     aKing.roomType=4;
     aKing.maxPeople=3;

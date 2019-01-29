@@ -400,7 +400,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -482,7 +482,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -515,7 +515,7 @@
        <item>
         <widget class="QPushButton" name="payButton">
          <property name="text">
-          <string>PushButton</string>
+          <string>Next</string>
          </property>
         </widget>
        </item>
