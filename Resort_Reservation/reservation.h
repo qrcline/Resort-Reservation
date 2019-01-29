@@ -31,10 +31,22 @@ private:
     int nights=0;
     int roomType=0;
 
+    struct room
+    {
+        QString name;
+        int roomType;
+        int price;
+        int maxPeople;
+    }sQueen,aQueen,sKing,aKing;
+
+
+
+
 
 
 
     void setBackground();
+    void setRooms();
 };
 
 #endif // RESERVATION_H
