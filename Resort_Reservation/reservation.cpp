@@ -62,6 +62,7 @@ void Reservation::setRooms()
     aKing.price=350;
     aKing.roomType=4;
     aKing.maxPeople=3;
+
 }
 
 //TODO
@@ -91,14 +92,21 @@ void Reservation::on_adultSelection_valueChanged(int arg1)
     ui->adultSelection->setMaximum(maxPeople-childrenSelection);
 
 
-
-
-
 }
 
 void Reservation::on_childrenSelection_valueChanged(int arg1)
 {
+    int selectedRoom=ui->roomSelection->currentIndex();
+    if(selectedRoom==1||selectedRoom==2)
+        int maxPeople=4;
+    else((selectedRoom==3||selectedRoom==4));
+            int maxPeople=3;
 
+    int adultSelection =ui->adultSelection->value();
+    int childrenSelection=ui->childrenSelection->value();
+
+    ui->childrenSelection->setMaximum((maxPeople-adultSelection));
+    ui->adultSelection->setMaximum(maxPeople-childrenSelection);
 }
 
 void Reservation::on_roomSelection_currentIndexChanged(int index)
