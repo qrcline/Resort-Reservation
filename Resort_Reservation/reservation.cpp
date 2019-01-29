@@ -10,6 +10,10 @@
 
 
 
+
+
+
+
 Reservation::Reservation(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Reservation)
@@ -18,19 +22,53 @@ Reservation::Reservation(QWidget *parent) :
 
     //Sets the background
     setBackground();
-    ui->nextButton->setEnabled(false);
+   // ui->nextButton->setEnabled(false);
     setRooms();
 
 
 
-
-
 }
+
 
 Reservation::~Reservation()
 {
     delete ui;
 }
+
+QString Reservation::ToDollar(double price )
+{
+    QString output= QString::number(price,'f',2); // Sets precission to 2 decimal places and converts to string
+    //TODO add comma for over 100 dollars use function
+    return "$"+output;
+}
+
+
+void Reservation::calculateTotal()
+{
+    double roomPrice=0.00;
+    switch (ui->roomSelection->currentIndex()) {
+
+    case 0: roomPrice=S_QUEEN;
+        break;
+    case 1:roomPrice=A_QUEEN;
+        break;
+    case 2: roomPrice=S_KING;
+        break;
+    case 3:roomPrice=A_KING;
+
+    }
+    double parkingFee=0.00;
+    if(ui->parkingYes->isChecked())
+        parkingFee=PARKING;
+    int nights=ui->nights->value();
+
+
+
+     ui->subtotalPg1->setText(ToDollar((roomPrice+parkingFee)*nights));
+
+}
+
+
 
 void Reservation::setBackground()
 {
@@ -65,51 +103,78 @@ void Reservation::setRooms()
 
 }
 
-//TODO
+void Reservation::on_roomSelection_currentIndexChanged(int index)
+{
+    calculateTotal();
+}
+
+//Person Selection
+void Reservation::on_adultSelection_valueChanged(int adultSelection)
+{
+
+    int selectedRoom=ui->roomSelection->currentIndex();
+        int maxPeople=4;
+   if((selectedRoom==2||selectedRoom==3))
+             maxPeople=3;
+
+
+    int childrenSelection=ui->childrenSelection->value();
+
+    ui->childrenSelection->setMaximum((maxPeople-adultSelection));
+    //ui->adultSelection->setMaximum(maxPeople-childrenSelection);
+    calculateTotal();
+
+
+}
+
+void Reservation::on_childrenSelection_valueChanged(int childrenSelection)
+{
+    int selectedRoom=ui->roomSelection->currentIndex();
+    int maxPeople=4;
+    if((selectedRoom==2||selectedRoom==3))
+         maxPeople=3;
+
+    int adultSelection =ui->adultSelection->value();
+
+    //ui->childrenSelection->setMaximum((maxPeople-adultSelection));
+    ui->adultSelection->setMaximum(maxPeople-childrenSelection);
+    calculateTotal();
+}
+
+//Navigation
+void Reservation::on_backButton_clicked()
+{
+    //Page 2 back to page 1
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void Reservation::on_payButton_clicked()
+{
+    //Page 2 to page 3
+     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void Reservation::on_closeButton_clicked()
+{
+    //Closes app
+    QApplication::quit();
+}
 void Reservation::on_nextButton_clicked()
 {
-    double finalTotal=0;
-    double costRoomNight=0;
-
-
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-
-void Reservation::on_adultSelection_valueChanged(int arg1)
+void Reservation::on_nights_valueChanged(const QString &arg1)
 {
-
-    int selectedRoom=ui->roomSelection->currentIndex();
-    if(selectedRoom==1||selectedRoom==2)
-        int maxPeople=4;
-    else((selectedRoom==3||selectedRoom==4));
-            int maxPeople=3;
-
-    int adultSelection =ui->adultSelection->value();
-    int childrenSelection=ui->childrenSelection->value();
-
-    ui->childrenSelection->setMaximum((maxPeople-adultSelection));
-    ui->adultSelection->setMaximum(maxPeople-childrenSelection);
-
-
+    calculateTotal();
 }
 
-void Reservation::on_childrenSelection_valueChanged(int arg1)
+void Reservation::on_parkingNo_clicked()
 {
-    int selectedRoom=ui->roomSelection->currentIndex();
-    if(selectedRoom==1||selectedRoom==2)
-        int maxPeople=4;
-    else((selectedRoom==3||selectedRoom==4));
-            int maxPeople=3;
-
-    int adultSelection =ui->adultSelection->value();
-    int childrenSelection=ui->childrenSelection->value();
-
-    ui->childrenSelection->setMaximum((maxPeople-adultSelection));
-    ui->adultSelection->setMaximum(maxPeople-childrenSelection);
+    calculateTotal();
 }
 
-void Reservation::on_roomSelection_currentIndexChanged(int index)
+void Reservation::on_parkingYes_clicked()
 {
-
+    calculateTotal();
 }

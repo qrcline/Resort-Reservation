@@ -24,6 +24,18 @@ private slots:
 
     void on_roomSelection_currentIndexChanged(int index);
 
+    void on_backButton_clicked();
+
+    void on_payButton_clicked();
+
+    void on_closeButton_clicked();
+
+    void on_nights_valueChanged(const QString &arg1);
+
+    void on_parkingNo_clicked();
+
+    void on_parkingYes_clicked();
+
 private:
     Ui::Reservation *ui;
     QString reservationName;
@@ -39,6 +51,15 @@ private:
         int maxPeople;
     }sQueen,aQueen,sKing,aKing;
 
+    const double S_QUEEN=284.00;
+    const double A_QUEEN=325.00;
+    const double S_KING=290.00;
+    const double A_KING=350.00;
+    const double PARKING=12.75;
+    const double RESORT_FEE=15.00;
+    const double TAX=0.15;
+
+
 
 
 
@@ -47,6 +68,8 @@ private:
 
     void setBackground();
     void setRooms();
+    void calculateTotal();
+    QString ToDollar(double);
 };
 
 #endif // RESERVATION_H

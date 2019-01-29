@@ -77,6 +77,9 @@
       <property name="text">
        <string>YES</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
      <widget class="QDateEdit" name="arrivalDateInput">
       <property name="geometry">
@@ -102,32 +105,6 @@
       </property>
       <property name="text">
        <string>ARRIVAL DATE</string>
-      </property>
-     </widget>
-     <widget class="QDateEdit" name="departureDateInput">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>150</y>
-        <width>110</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="calendarPopup">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QLabel" name="departureDateLabel">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>130</y>
-        <width>111</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>DEPARTURE DATE</string>
       </property>
      </widget>
      <widget class="QRadioButton" name="parkingNo">
@@ -209,6 +186,9 @@
         <width>81</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="maximum">
+       <number>3</number>
       </property>
      </widget>
      <widget class="QLabel" name="label_4">
@@ -572,7 +552,7 @@
        <string>CLOSE</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_13">
+     <widget class="QLabel" name="thankYouMessage">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -599,7 +579,7 @@
         <enum>QLayout::SetFixedSize</enum>
        </property>
        <item row="1" column="1">
-        <widget class="QLabel" name="parkingTotal_3">
+        <widget class="QLabel" name="totalNightsConfirmation">
          <property name="text">
           <string>$0.00</string>
          </property>
@@ -627,7 +607,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLabel" name="roomTotal_3">
+        <widget class="QLabel" name="arrivalDateConfirmation">
          <property name="text">
           <string>$0.00</string>
          </property>
@@ -641,21 +621,21 @@
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="totalDue_3">
+        <widget class="QLabel" name="occupantsConfirmation">
          <property name="text">
           <string>$0.00</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="resortFeeTotal_3">
+        <widget class="QLabel" name="roomTypeConfirmation">
          <property name="text">
           <string>$0.00</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="taxTotal_3">
+        <widget class="QLabel" name="parkingConfirmation">
          <property name="text">
           <string>$0.00</string>
          </property>
@@ -683,7 +663,7 @@
        <string>Credit Card:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="totalDue_8">
+     <widget class="QLabel" name="creditCardConfirmation">
       <property name="geometry">
        <rect>
         <x>120</x>
@@ -709,7 +689,7 @@
        <string>Total</string>
       </property>
      </widget>
-     <widget class="QLabel" name="totalDue_9">
+     <widget class="QLabel" name="finalTotalConfirmation">
       <property name="geometry">
        <rect>
         <x>120</x>
