@@ -36,6 +36,9 @@ private slots:
 
     void on_parkingYes_clicked();
 
+    void on_reservationName_textChanged(const QString &arg1);
+
+
 private:
     Ui::Reservation *ui;
     QString reservationName;

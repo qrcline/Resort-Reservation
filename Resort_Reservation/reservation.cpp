@@ -6,14 +6,6 @@
 #include <QMessageBox>
 
 
-
-
-
-
-
-
-
-
 Reservation::Reservation(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Reservation)
@@ -22,7 +14,7 @@ Reservation::Reservation(QWidget *parent) :
 
     //Sets the background
     setBackground();
-   // ui->nextButton->setEnabled(false);
+    ui->nextButton->setEnabled(false);
     setRooms();
     ui->arrivalDateInput->setDate(QDate::currentDate());
     ui->arrivalDateInput->setMinimumDateTime(QDateTime::currentDateTime());
@@ -185,6 +177,9 @@ void Reservation::on_backButton_clicked()
 void Reservation::on_payButton_clicked()
 {
     //Page 2 to page 3
+    QMessageBox msgBox;
+    msgBox.setText("Payment Confirmed");
+    msgBox.exec();
      ui->stackedWidget->setCurrentIndex(2);
 }
 
@@ -211,4 +206,9 @@ void Reservation::on_parkingNo_clicked()
 void Reservation::on_parkingYes_clicked()
 {
     calculateTotal();
+}
+
+void Reservation::on_reservationName_textChanged(const QString &arg1)
+{
+    ui->nextButton->setEnabled(true);
 }
