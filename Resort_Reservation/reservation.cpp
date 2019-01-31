@@ -1,7 +1,7 @@
 #include "reservation.h"
 #include "ui_reservation.h"
 #include "iostream"
-#include "string"
+#include <string>
 #include <QDate>
 #include <QMessageBox>
 
@@ -18,6 +18,7 @@ Reservation::Reservation(QWidget *parent) :
     setRooms();
     ui->arrivalDateInput->setDate(QDate::currentDate());
     ui->arrivalDateInput->setMinimumDateTime(QDateTime::currentDateTime());
+    ui->cardExpiration->setInputMask("99/9999;_");
 }
 
 
@@ -88,8 +89,8 @@ void Reservation::calculateTotal()
      ui->roomTypeConfirmation->setText(roomName);
      ui->finalTotalConfirmation->setText(ToDollar(totalDue));
 
-     ui->arrivalDateConfirmation->setText( ui->arrivalDateInput->date().toString());
-     ui->thankYouMessage->setText("Thank you, "+ui->reservationName->text()+",\nWe look forward to seeing you.");
+     ui->arrivalDateConfirmation->setText( ui->arrivalDateInput->date().toString());    
+
 
 
 }
@@ -181,6 +182,7 @@ void Reservation::on_payButton_clicked()
     msgBox.setText("Payment Confirmed");
     msgBox.exec();
      ui->stackedWidget->setCurrentIndex(2);
+     ui->creditCardConfirmation->setText(ui->cardNumber->text().right(4));
 }
 
 void Reservation::on_closeButton_clicked()
@@ -211,4 +213,26 @@ void Reservation::on_parkingYes_clicked()
 void Reservation::on_reservationName_textChanged(const QString &arg1)
 {
     ui->nextButton->setEnabled(true);
+     calculateTotal();
+}
+
+//Credit Card Buttons
+void Reservation::on_visaButton_clicked()
+{
+    ui->cardNumber->setInputMask("9999-9999-9999-9999;_");
+}
+
+void Reservation::on_discoverButton_clicked()
+{
+    ui->cardNumber->setInputMask("9999-9999-9999-9999;_");
+}
+
+void Reservation::on_mCardButton_clicked()
+{
+    ui->cardNumber->setInputMask("9999-9999-9999-9999;_");
+}
+
+void Reservation::on_amexButton_clicked()
+{
+    ui->cardNumber->setInputMask("9999-999999-99999;_");
 }

@@ -285,7 +285,7 @@
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>10</y>
+        <y>40</y>
         <width>101</width>
         <height>20</height>
        </rect>
@@ -301,7 +301,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>230</y>
+        <y>260</y>
         <width>82</width>
         <height>17</height>
        </rect>
@@ -310,7 +310,7 @@
        <string>VISA</string>
       </property>
       <property name="checked">
-       <bool>true</bool>
+       <bool>false</bool>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">buttonGroup</string>
@@ -320,7 +320,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>250</y>
+        <y>280</y>
         <width>101</width>
         <height>17</height>
        </rect>
@@ -336,7 +336,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>250</y>
+        <y>280</y>
         <width>121</width>
         <height>17</height>
        </rect>
@@ -352,7 +352,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>230</y>
+        <y>260</y>
         <width>82</width>
         <height>17</height>
        </rect>
@@ -368,7 +368,7 @@
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>210</y>
+        <y>240</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -387,7 +387,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>280</y>
+        <y>310</y>
         <width>191</width>
         <height>20</height>
        </rect>
@@ -403,7 +403,7 @@
       <property name="geometry">
        <rect>
         <x>90</x>
-        <y>310</y>
+        <y>340</y>
         <width>113</width>
         <height>20</height>
        </rect>
@@ -419,7 +419,7 @@
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>50</y>
+        <y>80</y>
         <width>141</width>
         <height>141</height>
        </rect>
@@ -542,7 +542,7 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>10</y>
+        <y>40</y>
         <width>101</width>
         <height>20</height>
        </rect>
@@ -558,20 +558,20 @@
       <property name="geometry">
        <rect>
         <x>230</x>
-        <y>390</y>
+        <y>400</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
-       <string>CLOSE</string>
+       <string>Close</string>
       </property>
      </widget>
      <widget class="QLabel" name="thankYouMessage">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>40</y>
+        <y>60</y>
         <width>171</width>
         <height>41</height>
        </rect>
@@ -670,25 +670,12 @@
        <rect>
         <x>33</x>
         <y>327</y>
-        <width>81</width>
+        <width>101</width>
         <height>20</height>
        </rect>
       </property>
       <property name="text">
-       <string>Credit Card:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="creditCardConfirmation">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>327</y>
-        <width>162</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>$0.00</string>
+       <string>Credit Card Ending:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
@@ -701,21 +688,34 @@
        </rect>
       </property>
       <property name="text">
-       <string>Total</string>
+       <string>Total:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="finalTotalConfirmation">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>150</x>
         <y>300</y>
-        <width>162</width>
-        <height>21</height>
+        <width>91</width>
+        <height>51</height>
        </rect>
       </property>
-      <property name="text">
-       <string>$0.00</string>
-      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="finalTotalConfirmation">
+         <property name="text">
+          <string>$0.00</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="creditCardConfirmation">
+         <property name="text">
+          <string>$0.00</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

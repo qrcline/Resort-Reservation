@@ -39,6 +39,14 @@ private slots:
     void on_reservationName_textChanged(const QString &arg1);
 
 
+    void on_visaButton_clicked();
+
+    void on_discoverButton_clicked();
+
+    void on_mCardButton_clicked();
+
+    void on_amexButton_clicked();
+
 private:
     Ui::Reservation *ui;
     QString reservationName;
