@@ -46,8 +46,8 @@ private slots:
     void on_mCardButton_clicked();
 
     void on_amexButton_clicked();
-
     void on_cardNumber_textChanged(const QString &arg1);
+
 
 private:
     Ui::Reservation *ui;
