@@ -15,6 +15,7 @@ Reservation::Reservation(QWidget *parent) :
     //Sets the background
     setBackground();
     ui->nextButton->setEnabled(false);
+     ui->payButton->setEnabled(false);
     setRooms();
     ui->arrivalDateInput->setDate(QDate::currentDate());
     ui->arrivalDateInput->setMinimumDateTime(QDateTime::currentDateTime());
@@ -219,20 +220,44 @@ void Reservation::on_reservationName_textChanged(const QString &arg1)
 //Credit Card Buttons
 void Reservation::on_visaButton_clicked()
 {
-    ui->cardNumber->setInputMask("4999-9999-9999-9999;_");
+    ui->cardNumber->clear();
+    ui->cardNumber->clearMask();
+    ui->cardNumber->setInputMask("9999-9999-9999-9999;_");
+    ui->cardNumber->setText("4");
 }
 
 void Reservation::on_discoverButton_clicked()
 {
-    ui->cardNumber->setInputMask("699-9999-9999-9999;_");
+    ui->cardNumber->clear();
+    ui->cardNumber->clearMask();
+    ui->cardNumber->setInputMask("999-9999-9999-9999;_");
+    ui->cardNumber->setText("6");
 }
 
 void Reservation::on_mCardButton_clicked()
 {
-    ui->cardNumber->setInputMask("5999-9999-9999-9999;_");
+    ui->cardNumber->clear();
+    ui->cardNumber->clearMask();
+    ui->cardNumber->setInputMask("9999-9999-9999-9999;_");
+    ui->cardNumber->setText("5");
 }
 
 void Reservation::on_amexButton_clicked()
 {
-    ui->cardNumber->setInputMask("3999-999999-99999;_");
+     ui->cardNumber->clear();
+     ui->cardNumber->clearMask();
+    ui->cardNumber->setInputMask("9999-999999-99999;_");
+    ui->cardNumber->setText("3");
+}
+
+void Reservation::on_cardNumber_textChanged(const QString &arg1)
+{
+    int max=16;
+    QString button= ui->buttonGroup->checkedButton()->text();
+    if(button == "American Express")
+        max=15;
+
+    if(max=(ui->cardNumber->text().length()))
+        ui->payButton->setEnabled(true);
+
 }

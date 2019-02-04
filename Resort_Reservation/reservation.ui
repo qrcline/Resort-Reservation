@@ -243,10 +243,13 @@
        <item>
         <widget class="QLineEdit" name="reservationName">
          <property name="text">
-          <string>Reservation Name</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Reservation Name</string>
          </property>
         </widget>
        </item>
@@ -484,7 +487,7 @@
        <item row="4" column="0">
         <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>Tota Duel:</string>
+          <string>Total Due:</string>
          </property>
         </widget>
        </item>
@@ -691,7 +694,7 @@
        <string>Total:</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>150</x>
